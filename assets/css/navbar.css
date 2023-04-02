@@ -55,6 +55,10 @@ nav img {
     margin-right: 25px;
 }
 
+.nav-active {
+    font-weight: 800;
+}
+
 .hamburger-nav-container {
   font-size: 23px;
   display: none;

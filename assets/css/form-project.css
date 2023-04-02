@@ -171,6 +171,10 @@ a {
 
 }
 
+.card-project a {
+    color: black;
+}
+
 .card-project img {
     display: block;
     width: 90%;

@@ -19,8 +19,8 @@ function getData(event) {
 
     let fileImg = document.getElementById('fileImg').files[0]
 
-    fileImg = URL.createObjectURL(fileImg);
-
+    
+    console.log(fileImg)
     if (nameProject == "") {
         return alert('Tolong Lengkapi Form yg tersedia 😊😉')
     }
@@ -30,16 +30,17 @@ function getData(event) {
         return alert('Tolong Lengkapi Form yg tersedia 😊😉')
     } else if (description == "") {
         return alert('Tolong Lengkapi Form yg tersedia 😊😉')
-    } else if (fileImg == "") {
-        return alert('Tolong Lengkapi Form yg tersedia 😊😉')
+    } else if (fileImg == undefined) {
+        return alert('Silahkan Upload file yg di butuhkan 😊😉')
     } else if (!nodeJs && !nextJs && !reactJs && !typeScript) {
         return alert('Mohon pilih tehnologi yang anda butuhkan 😊😉')
     }
+    fileImg = URL.createObjectURL(fileImg);
     let data = { nameProject, startDate, endDate, description, nodeJs, nextJs, reactJs, typeScript, fileImg }
 
     dataProject.push(data)
     console.log(dataProject)
-
+    document.getElementById("example").style.display = "none"
     showData()
 
  
@@ -54,7 +55,7 @@ function showData() {
     containerResult.innerHTML += `
         <div class="card-project">
             <img src="${dataProject[i].fileImg}" >
-            <p class="title-project">${dataProject[i].nameProject}</p>
+            <p class="title-project"> <a href="blog-project.html">${dataProject[i].nameProject}</a></p>
             <p class="durasi-project">${getDuration (dataProject[i].startDate,dataProject[i].endDate)}</p>
             <p class="deskripsi-project">${dataProject[i].description}</p>
 
